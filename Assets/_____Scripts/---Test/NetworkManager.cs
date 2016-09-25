@@ -38,7 +38,7 @@ public class NetworkManager : MonoBehaviour {
 	void OnServerInitialized()
 	{
 		Debug.Log("Server Initializied");
-		SpawnPlayer (-1f);
+		SpawnPlayer (-4f);
 	}
 
 
@@ -65,7 +65,7 @@ public class NetworkManager : MonoBehaviour {
 	void OnConnectedToServer()
 	{
 		Debug.Log("Server Joined");
-		SpawnPlayer (1f);
+		SpawnPlayer (4f);
 	}
 
 
@@ -74,7 +74,7 @@ public class NetworkManager : MonoBehaviour {
 
 
 	void SpawnPlayer(float x){
-		Network.Instantiate (playerPrefab, new Vector3 (x, 5f, 0f), Quaternion.identity, 0);
+		Network.Instantiate (playerPrefab, new Vector3 (x, 2f, 0f), Quaternion.identity, 0);
 	}
 
 
