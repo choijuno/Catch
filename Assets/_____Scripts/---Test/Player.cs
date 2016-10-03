@@ -51,16 +51,16 @@ public class Player : MonoBehaviour {
 	void InputMovement()
 	{
 		if (Input.GetKey(KeyCode.W))
-			mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position + Vector3.forward * speed*10 * Time.deltaTime);
 
 		if (Input.GetKey(KeyCode.S))
-			mybody.MovePosition(mybody.position - Vector3.forward * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position - Vector3.forward * speed*10 * Time.deltaTime);
 
 		if (Input.GetKey(KeyCode.D))
-			mybody.MovePosition(mybody.position + Vector3.right * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position + Vector3.right * speed*10 * Time.deltaTime);
 
 		if (Input.GetKey(KeyCode.A))
-			mybody.MovePosition(mybody.position - Vector3.right * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position - Vector3.right * speed*10 * Time.deltaTime);
 	}
 
 	private void InputColorChange(){
