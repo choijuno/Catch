@@ -16,8 +16,12 @@ public class Player : MonoBehaviour {
 
 	public Renderer myrenderer;
 
+	GameObject gameCamera;
+
 	void Start(){
 		mybody = GetComponent<Rigidbody> ();
+		gameCamera = GameObject.Find ("Main Camera");
+		gameCamera.GetComponent<CamControl> ().Player = gameObject;
 	}
 
 	void Update()
