@@ -7,6 +7,9 @@ public class Player : MonoBehaviour {
 
 	public Rigidbody mybody;
 
+   public GameObject me;
+   public Vector3 mepo;
+
 	public NetworkView networkview;
 	private float lastSynchronizationTime = 0f;
 	private float syncDelay = 0f;
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour {
 
 	void Update()
 	{
+        mepo = me.transform.position;
 		if (networkview.isMine) {
 			InputMovement ();
 			InputColorChange ();
@@ -54,18 +58,19 @@ public class Player : MonoBehaviour {
 
 	void InputMovement()
 	{
-		if (Input.GetKey(KeyCode.W))
-			mybody.MovePosition(mybody.position + Vector3.forward * speed*100 * Time.deltaTime);
-
+        if (Input.GetKey(KeyCode.W))
+            //mybody.MovePosition(mybody.position + Vector3.forward * speed*100 * Time.deltaTime);
+        me.transform.Translate(Vector3.forward * speed*50 * Time.deltaTime);
 		if (Input.GetKey(KeyCode.S))
-			mybody.MovePosition(mybody.position - Vector3.forward * speed*100 * Time.deltaTime);
-
-		if (Input.GetKey(KeyCode.D))
-			mybody.MovePosition(mybody.position + Vector3.right * speed*100 * Time.deltaTime);
-
-		if (Input.GetKey(KeyCode.A))
-			mybody.MovePosition(mybody.position - Vector3.right * speed*100 * Time.deltaTime);
-	}
+			//mybody.MovePosition(mybody.position - Vector3.forward * speed*100 * Time.deltaTime);
+        me.transform.Translate(Vector3.back * speed*50 * Time.deltaTime);
+        if (Input.GetKey(KeyCode.D))
+			//mybody.MovePosition(mybody.position + Vector3.right * speed*100 * Time.deltaTime);
+        me.transform.Translate(Vector3.right * speed * 50 * Time.deltaTime);
+        if (Input.GetKey(KeyCode.A))
+            //mybody.MovePosition(mybody.position - Vector3.right * speed*100 * Time.deltaTime);
+        me.transform.Translate(Vector3.left * speed * 50 * Time.deltaTime);
+    }
 
 	private void InputColorChange(){
 		if (Input.GetKeyDown (KeyCode.R)) {
@@ -85,10 +90,10 @@ public class Player : MonoBehaviour {
 		Vector3 syncPosition = Vector3.zero;
 		Vector3 syncVelocity = Vector3.zero;
 		if (stream.isWriting) {
-			syncPosition = mybody.position;
+			//syncPosition = mybody.position;
 			stream.Serialize (ref syncPosition);
 
-			syncVelocity = mybody.position;
+			//syncVelocity = mybody.position;
 			stream.Serialize (ref syncVelocity);
 		} else {
 			stream.Serialize (ref syncPosition);
@@ -107,4 +112,12 @@ public class Player : MonoBehaviour {
 		syncTime += Time.deltaTime;
 		mybody.position = Vector3.Lerp (syncStartPosition, syncEndPosition, syncTime / syncDelay);
 	}
+
+    void OnCollisionEnter(Collision col)
+    {
+       
+        if(col.gameObject.CompareTag("wall"))
+            Debug.Log("앙");
+        
+    }
 }

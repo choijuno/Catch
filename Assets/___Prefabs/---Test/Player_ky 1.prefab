@@ -16,7 +16,7 @@ GameObject:
   - 148: {fileID: 14882788}
   m_Layer: 0
   m_Name: Player_ky 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: 40.9, z: 1}
   m_LocalScale: {x: 64, y: 64, z: 64}
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  mybody: {fileID: 5404126}
+  me: {fileID: 160266}
+  mepo: {x: 0, y: 0, z: 0}
   networkview: {fileID: 14882788}
   myrenderer: {fileID: 2302972}
 --- !u!148 &14882788
