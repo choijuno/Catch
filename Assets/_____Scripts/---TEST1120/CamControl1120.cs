@@ -4,16 +4,23 @@ using System.Collections;
 public class CamControl1120 : MonoBehaviour {
 
     public GameObject Player;
+	public bool signCheck = false;
 
-	// Use this for initialization
 	void Start () {
-		StartCoroutine ("Follow");
+		StartCoroutine ("Finding");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-    }
+
+	IEnumerator Finding() {
+		while (true) {
+
+			if (signCheck) {
+				StartCoroutine ("Follow");
+				signCheck = false;
+			} 
+
+			yield return new WaitForSeconds (0.006f);
+		}
+	}
 
 	IEnumerator Follow() {
 		yield return new WaitForSeconds (2f);

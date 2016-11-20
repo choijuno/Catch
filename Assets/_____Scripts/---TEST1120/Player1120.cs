@@ -24,6 +24,7 @@ public class Player1120 : MonoBehaviour {
 		if (networkview.isMine) {
 			gameCamera = GameObject.Find ("Main Camera");
 			gameCamera.GetComponent<CamControl1120> ().Player = gameObject;
+			gameCamera.GetComponent<CamControl1120> ().signCheck = true;
 		}
 	}
 
