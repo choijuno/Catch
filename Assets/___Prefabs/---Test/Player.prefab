@@ -106,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   mybody: {fileID: 5439630}
+  me: {fileID: 171544}
+  mepo: {x: 0, y: 0, z: 0}
   networkview: {fileID: 14803996}
   myrenderer: {fileID: 2398748}
 --- !u!148 &14803996
