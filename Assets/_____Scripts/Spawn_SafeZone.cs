@@ -5,17 +5,18 @@ public class Spawn_SafeZone : MonoBehaviour {
 
     public GameObject[] SpawnPoint_Safezone;
     public int Spawn_count;
-    int clear_time = 5;
+
+    int[] clear_time= { 5, 5, 5 };
 
 	// Use this for initialization
 	void Start () {
         shuffle_point();
-        spawn_zone();
-        
+        spawn_zone();        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         
     }
 
@@ -40,5 +41,10 @@ public class Spawn_SafeZone : MonoBehaviour {
         {
             SpawnPoint_Safezone[i].SetActive(true);
         }
+    }
+
+    void thief_clear()
+    {
+       
     }
 }

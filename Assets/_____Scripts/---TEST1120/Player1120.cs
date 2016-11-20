@@ -23,6 +23,7 @@ public class Player1120 : MonoBehaviour {
     float police_HP=5.0f;
     bool safe = false;
 
+
     
     GameObject gameCamera;
 
