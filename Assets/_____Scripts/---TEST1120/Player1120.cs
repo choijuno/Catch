@@ -4,8 +4,9 @@ using CnControls;
 
 public class Player1120 : MonoBehaviour {
 
+    int chaNum = 1;
 
-	public float speed = 10f;
+	public float speed = 0.02f;
 
 	public Rigidbody mybody;
 
@@ -19,7 +20,11 @@ public class Player1120 : MonoBehaviour {
 
 	public Renderer myrenderer;
 
-	GameObject gameCamera;
+    float police_HP=5.0f;
+    bool safe = false;
+
+    
+    GameObject gameCamera;
 
 	void Start(){
 		mybody = GetComponent<Rigidbody> ();
@@ -28,19 +33,19 @@ public class Player1120 : MonoBehaviour {
 			gameCamera.GetComponent<CamControl1120> ().Player = gameObject;
 			gameCamera.GetComponent<CamControl1120> ().signCheck = true;
 		}
-	}
+        Debug.Log(police_HP);
+        Debug.Log(safe);
+        
+    }
 
-	void Update()
+    void Update()
 	{
 		if (networkview.isMine) {
 			InputMovement ();
 			InputColorChange ();
-		} else {
+		} else {    
 			SyncedMovement ();
 		}
-
-
-
 
 
 		if (Input.GetMouseButton (0)) {
@@ -55,21 +60,38 @@ public class Player1120 : MonoBehaviour {
 				}
 			}
 		}
-
-	}
-
+        if (safe==true)
+        {
+            police_HP = police_HP - (1 * Time.deltaTime);
+            Debug.Log("죽어감" + police_HP);
+        }
+        if (safe==false && police_HP < 5.0f && police_HP > 0.0f)
+        {
+            police_HP = police_HP + (1 * Time.deltaTime);
+            Debug.Log("살아남" + police_HP);
+        }
+        if(police_HP>5)
+        {
+            police_HP = 5;
+        }
+        if (safe == true && police_HP <= 0)
+        {
+            police_HP = 0;
+            Debug.Log("끝" + police_HP);
+        }
+    }
 	void InputMovement()
 	{
-		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * 0.05f), 1.01f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * 0.05f));
-
+		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * 0.05f), 0.7f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * 0.05f));
+        
         if (Input.GetKey(KeyCode.W))
-            mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.deltaTime);
+            mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.smoothDeltaTime);
 		if (Input.GetKey(KeyCode.S))
-			mybody.MovePosition(mybody.position - Vector3.forward * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position - Vector3.forward * speed * Time.smoothDeltaTime);
         if (Input.GetKey(KeyCode.D))
-			mybody.MovePosition(mybody.position + Vector3.right * speed * Time.deltaTime);
+			mybody.MovePosition(mybody.position + Vector3.right * speed * Time.smoothDeltaTime);
         if (Input.GetKey(KeyCode.A))
-            mybody.MovePosition(mybody.position - Vector3.right * speed * Time.deltaTime);
+            mybody.MovePosition(mybody.position - Vector3.right * speed * Time.smoothDeltaTime);
     }
 
 	private void InputColorChange(){
@@ -117,7 +139,23 @@ public class Player1120 : MonoBehaviour {
     {
        
         if(col.gameObject.CompareTag("wall"))
-            Debug.Log("앙");
-        
+            Debug.Log("앙");        
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.CompareTag("safezone"))
+        {
+            safe = false;
+            Debug.Log(safe);
+        }
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("safezone"))
+        {
+            safe = true;
+            Debug.Log(safe);
+        }
     }
 }

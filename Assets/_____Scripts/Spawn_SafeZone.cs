@@ -5,6 +5,7 @@ public class Spawn_SafeZone : MonoBehaviour {
 
     public GameObject[] SpawnPoint_Safezone;
     public int Spawn_count;
+    int clear_time = 5;
 
 	// Use this for initialization
 	void Start () {

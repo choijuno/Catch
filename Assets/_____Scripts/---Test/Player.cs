@@ -7,8 +7,8 @@ public class Player : MonoBehaviour {
 
 	public Rigidbody mybody;
 
-   public GameObject me;
-   public Vector3 mepo;
+    public GameObject me;
+    public Vector3 mepo;
 
 	public NetworkView networkview;
 	private float lastSynchronizationTime = 0f;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 	private Vector3 syncEndPosition = Vector3.zero;
 
 	public Renderer myrenderer;
-
+    
 	GameObject gameCamera;
 
 	void Start(){
