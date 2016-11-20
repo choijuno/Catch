@@ -21,8 +21,10 @@ public class Player1120 : MonoBehaviour {
 
 	void Start(){
 		mybody = GetComponent<Rigidbody> ();
-		//gameCamera = GameObject.Find ("Main Camera");
-		//gameCamera.GetComponent<CamControl> ().Player = gameObject;
+		if (networkview.isMine) {
+			gameCamera = GameObject.Find ("Main Camera");
+			gameCamera.GetComponent<CamControl1120> ().Player = gameObject;
+		}
 	}
 
 	void Update()
