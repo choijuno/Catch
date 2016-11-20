@@ -83,10 +83,10 @@ public class Player1120 : MonoBehaviour {
 		Vector3 syncPosition = Vector3.zero;
 		Vector3 syncVelocity = Vector3.zero;
 		if (stream.isWriting) {
-			//syncPosition = mybody.position;
+			syncPosition = mybody.position;
 			stream.Serialize (ref syncPosition);
 
-			//syncVelocity = mybody.position;
+			syncVelocity = mybody.position;
 			stream.Serialize (ref syncVelocity);
 		} else {
 			stream.Serialize (ref syncPosition);
