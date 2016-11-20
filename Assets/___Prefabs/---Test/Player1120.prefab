@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a5d2dd00dc1284fb71f84acfd82fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 5
   mybody: {fileID: 5439630}
   networkview: {fileID: 14803996}
   myrenderer: {fileID: 2398748}

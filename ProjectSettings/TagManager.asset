@@ -8,6 +8,7 @@ TagManager:
   - right
   - safezone
   - wall
+  - point
   layers:
   - Default
   - TransparentFX
