@@ -5,8 +5,8 @@ public class CamControl12 : MonoBehaviour {
 
     public GameObject Player;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
       
     }
 	
