@@ -19,13 +19,6 @@ public class NetworkManager1120 : MonoBehaviour {
 	//server load
 	private HostData[] hostList;
 
-	void Start () {
-	
-	}
-
-	void Update () {
-	
-	}
 
 
 	//Server Create
