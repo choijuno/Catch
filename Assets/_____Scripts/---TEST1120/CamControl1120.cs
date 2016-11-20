@@ -24,7 +24,7 @@ public class CamControl1120 : MonoBehaviour {
 
 	IEnumerator Follow() {
 		while (true) {
-			transform.position = new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z);
+			transform.position = new Vector3(Mathf.Lerp(transform.position.x,Player.transform.position.x,0.1f), transform.position.y,Mathf.Lerp(transform.position.z,Player.transform.position.z,0.1f));
 			yield return new WaitForSeconds (0.006f);
 		}
 	}

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CnControls;
 
 public class Player1120 : MonoBehaviour {
+
 
 	public float speed = 10f;
 
@@ -58,6 +60,8 @@ public class Player1120 : MonoBehaviour {
 
 	void InputMovement()
 	{
+		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * 0.05f), 1.01f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * 0.05f));
+
         if (Input.GetKey(KeyCode.W))
             mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.deltaTime);
 		if (Input.GetKey(KeyCode.S))
