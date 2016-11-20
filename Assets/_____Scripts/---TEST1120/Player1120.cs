@@ -7,8 +7,6 @@ public class Player1120 : MonoBehaviour {
 
 	public Rigidbody mybody;
 
-   public GameObject me;
-   public Vector3 mepo;
 
 	public NetworkView networkview;
 	private float lastSynchronizationTime = 0f;
@@ -23,13 +21,12 @@ public class Player1120 : MonoBehaviour {
 
 	void Start(){
 		mybody = GetComponent<Rigidbody> ();
-		gameCamera = GameObject.Find ("Main Camera");
-		gameCamera.GetComponent<CamControl> ().Player = gameObject;
+		//gameCamera = GameObject.Find ("Main Camera");
+		//gameCamera.GetComponent<CamControl> ().Player = gameObject;
 	}
 
 	void Update()
 	{
-        mepo = me.transform.position;
 		if (networkview.isMine) {
 			InputMovement ();
 			InputColorChange ();
@@ -59,17 +56,13 @@ public class Player1120 : MonoBehaviour {
 	void InputMovement()
 	{
         if (Input.GetKey(KeyCode.W))
-            //mybody.MovePosition(mybody.position + Vector3.forward * speed*100 * Time.deltaTime);
-        me.transform.Translate(Vector3.forward * speed*50 * Time.deltaTime);
+            mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.deltaTime);
 		if (Input.GetKey(KeyCode.S))
-			//mybody.MovePosition(mybody.position - Vector3.forward * speed*100 * Time.deltaTime);
-        me.transform.Translate(Vector3.back * speed*50 * Time.deltaTime);
+			mybody.MovePosition(mybody.position - Vector3.forward * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.D))
-			//mybody.MovePosition(mybody.position + Vector3.right * speed*100 * Time.deltaTime);
-        me.transform.Translate(Vector3.right * speed * 50 * Time.deltaTime);
+			mybody.MovePosition(mybody.position + Vector3.right * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.A))
-            //mybody.MovePosition(mybody.position - Vector3.right * speed*100 * Time.deltaTime);
-        me.transform.Translate(Vector3.left * speed * 50 * Time.deltaTime);
+            mybody.MovePosition(mybody.position - Vector3.right * speed * Time.deltaTime);
     }
 
 	private void InputColorChange(){
