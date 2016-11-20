@@ -8,6 +8,8 @@ public class NetworkManager : MonoBehaviour {
 	//player
 	public GameObject playerPrefab;
 
+	public GameObject spawnPoint_host;
+	public GameObject spawnPoint_guest;
 
 
 	//server create
@@ -38,7 +40,7 @@ public class NetworkManager : MonoBehaviour {
 	void OnServerInitialized()
 	{
 		Debug.Log("Server Initializied");
-		SpawnPlayer (-4f);
+		SpawnPlayer (spawnPoint_host);
 	}
 
 
@@ -65,7 +67,7 @@ public class NetworkManager : MonoBehaviour {
 	void OnConnectedToServer()
 	{
 		Debug.Log("Server Joined");
-		SpawnPlayer (4f);
+		SpawnPlayer (spawnPoint_guest);
 	}
 
 
@@ -73,8 +75,8 @@ public class NetworkManager : MonoBehaviour {
 	//player
 
 
-	void SpawnPlayer(float x){
-		Network.Instantiate (playerPrefab, new Vector3 (x, 32, 0f), Quaternion.identity, 0);
+	void SpawnPlayer(GameObject spawnpoint){
+		Network.Instantiate (playerPrefab, new Vector3 (spawnpoint.transform.position.x,spawnpoint.transform.position.y,spawnpoint.transform.position.z), Quaternion.identity, 0);
 	}
 
 
