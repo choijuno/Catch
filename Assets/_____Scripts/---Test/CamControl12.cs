@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CamControl : MonoBehaviour {
+public class CamControl12 : MonoBehaviour {
 
     public GameObject Player;
 
