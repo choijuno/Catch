@@ -11,8 +11,6 @@ public class Spawn_SafeZone : MonoBehaviour {
         shuffle_point();
         spawn_zone();
         
-
-
 	}
 	
 	// Update is called once per frame
