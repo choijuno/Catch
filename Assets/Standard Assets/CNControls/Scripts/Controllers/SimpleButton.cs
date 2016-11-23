@@ -9,6 +9,17 @@ namespace CnControls
     /// </summary>
     public class SimpleButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
+
+
+		public GameObject gameManager;
+
+		void Start(){
+			gameManager = GameObject.Find ("GameManager").gameObject;
+
+		}
+
+
+
         /// <summary>
         /// The name of the button
         /// </summary>
@@ -58,6 +69,7 @@ namespace CnControls
         public void OnPointerDown(PointerEventData eventData)
         {
 			Debug.Log ("btnDown");
+
             _virtualButton.Press();
         }
     }
