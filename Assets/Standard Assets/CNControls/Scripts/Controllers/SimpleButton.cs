@@ -11,14 +11,6 @@ namespace CnControls
     {
 
 
-		public GameObject gameManager;
-
-		void Start(){
-			gameManager = GameObject.Find ("GameManager").gameObject;
-
-		}
-
-
 
         /// <summary>
         /// The name of the button
