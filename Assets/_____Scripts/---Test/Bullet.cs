@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour {
 
 
 	void Start() {
-		
+		networkview = GetComponent<NetworkView> ();
 	}
 	[RPC]
 	void Awake() {

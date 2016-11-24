@@ -73,7 +73,8 @@ namespace CnControls
         /// It's also utilised by the editor input helper
         /// </summary>
         /// <param name="eventData">Data of the passed event</param>
-        public void OnPointerDown(PointerEventData eventData)
+		[RPC]
+		public void OnPointerDown(PointerEventData eventData)
         {
 			Debug.Log ("btnDown");
 
