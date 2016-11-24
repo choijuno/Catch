@@ -5,7 +5,11 @@ public class LookTaget : MonoBehaviour {
 	public GameObject lookStick;
 	// Use this for initialization
 	void Start () {
-		lookStick = GameObject.Find ("lookStick").gameObject;
+		if (Application.loadedLevelName != "Test1120") {
+			this.enabled = false;
+		} else {
+			lookStick = GameObject.Find ("lookStick").gameObject;
+		}
 	}
 	
 	// Update is called once per frame
