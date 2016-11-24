@@ -27,8 +27,8 @@ public class Player1120 : MonoBehaviour {
     float HP=5.0f;
     bool safe = false;
 
-
-    
+    public GameObject[] hi_look;
+        
     GameObject gameCamera;
 
 	void Start(){
@@ -170,6 +170,11 @@ public class Player1120 : MonoBehaviour {
 
     void hi()
     {
-       // GetComponent("Spawn_SafeZone").SpawnPoint_Safezone
+        
+        for (int i=0;i>3;i++) {
+            hi_look[i]=
+            GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().SpawnPoint_Safezone[i];
+        }
+        
     }
 }
