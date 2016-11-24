@@ -314,7 +314,7 @@ MonoBehaviour:
   speed: 8
   mybody: {fileID: 5439630}
   networkview: {fileID: 14803996}
-  myrenderer: {fileID: 2398748}
+  myrenderer: {fileID: 2309040}
 --- !u!114 &11408166
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -60,7 +60,7 @@ public class Player1120 : MonoBehaviour {
 
 		if (networkview.isMine) {
 			InputMovement ();
-			//InputColorChange ();
+			InputColorChange ();
 		} else {    
 			SyncedMovement ();
 		}
