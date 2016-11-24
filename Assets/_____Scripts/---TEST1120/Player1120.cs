@@ -48,7 +48,9 @@ public class Player1120 : MonoBehaviour {
 		}
         Debug.Log(HP);
         Debug.Log(safe);
-        hi();
+		if (Application.loadedLevelName != "Test1120") {
+			hi ();
+		}
         //Invoke("hi", 0.2f);
         
 
@@ -88,15 +90,15 @@ public class Player1120 : MonoBehaviour {
             HP = 0;
             Debug.Log("끝" + HP);
         }
-
-        if (GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().arrow_test == true)
-        {
+		if (Application.loadedLevelName != "Test1120") {
+			if (GameObject.Find ("SpawnManager").GetComponent<Spawn_SafeZone> ().arrow_test == true) {
             
-            //Debug.Log(hi_look[0].transform);
-            arrow[0].transform.LookAt(hi_look[0].transform);
-            arrow[1].transform.LookAt(hi_look[1].transform);
-            arrow[2].transform.LookAt(hi_look[2].transform);
-        }
+				//Debug.Log(hi_look[0].transform);
+				arrow [0].transform.LookAt (hi_look [0].transform);
+				arrow [1].transform.LookAt (hi_look [1].transform);
+				arrow [2].transform.LookAt (hi_look [2].transform);
+			}
+		}
 
 
     }
@@ -121,7 +123,7 @@ public class Player1120 : MonoBehaviour {
 		}
 	}
 	
-	void ChangeColorTo(Vector3 Color){
+	[RPC] void ChangeColorTo(Vector3 Color){
 		myrenderer.material.color = new Color (Color.x, Color.y, Color.z, 1f);
 
 		if (networkview.isMine) {

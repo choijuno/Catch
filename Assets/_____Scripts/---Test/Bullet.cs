@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
 	void Start() {
 		
 	}
-
+	[RPC]
 	void Awake() {
 		lookStick = GameObject.Find ("shootStartPos");
 		Button = GameObject.Find ("Button");
@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour {
 
 
 	}
-
+	[RPC]
 	void Update() {
 		if (!shootCheck) {
 			resetPos ();
@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour {
 			//StopCoroutine ("shoot");
 		}
 	}
-
+	[RPC]
 	public void resetPos(){
 		 
 		transform.localPosition = lookStick.transform.position;
