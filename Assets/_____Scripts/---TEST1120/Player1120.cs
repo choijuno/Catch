@@ -27,7 +27,8 @@ public class Player1120 : MonoBehaviour {
     float HP=5.0f;
     bool safe = false;
 
-    public GameObject[] hi_look;
+    GameObject[] hi_look = new GameObject[3];
+    public GameObject[] arrow;
         
     GameObject gameCamera;
 
@@ -47,7 +48,10 @@ public class Player1120 : MonoBehaviour {
 		}
         Debug.Log(HP);
         Debug.Log(safe);
+        hi();
+        //Invoke("hi", 0.2f);
         
+
     }
 
     void Update()
@@ -84,10 +88,20 @@ public class Player1120 : MonoBehaviour {
             HP = 0;
             Debug.Log("끝" + HP);
         }
+
+        if (GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().arrow_test == true)
+        {
+            
+            //Debug.Log(hi_look[0].transform);
+            arrow[0].transform.LookAt(hi_look[0].transform);
+            arrow[1].transform.LookAt(hi_look[1].transform);
+            arrow[2].transform.LookAt(hi_look[2].transform);
+        }
+
+
     }
 
-
-	void InputMovement()
+    void InputMovement()
 	{
 		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * speed), 0.7f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * speed));
         
@@ -170,11 +184,12 @@ public class Player1120 : MonoBehaviour {
 
     void hi()
     {
-        
-        for (int i=0;i>3;i++) {
-            hi_look[i]=
-            GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().SpawnPoint_Safezone[i];
+        //Debug.Log(GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().SpawnPoint_Safezone[0]);
+        for (int i=0 ; i < 3 ;i++) {
+            hi_look[i] = GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().SpawnPoint_Safezone[i].gameObject;
+            
+            Debug.Log(hi_look[i]);
         }
-        
+        GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().arrow_test = true;
     }
 }

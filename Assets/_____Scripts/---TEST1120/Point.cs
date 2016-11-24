@@ -8,8 +8,8 @@ public class Point : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        Debug.Log("Point_Script");
+    }
 	
 	// Update is called once per frame
 	void Update () {
