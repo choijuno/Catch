@@ -4,6 +4,7 @@ using System.Collections;
 public class Point : MonoBehaviour {
 
     float point_time = 5.0f;
+	public bool look_point = false;
 
 
 	// Use this for initialization
@@ -18,6 +19,8 @@ public class Point : MonoBehaviour {
             Debug.Log("clear");
             //clear
             point_time = 0;
+			look_point = true;
+			//gameObject.
         }	
 	}
 

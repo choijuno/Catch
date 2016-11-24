@@ -188,7 +188,7 @@ public class Player1120 : MonoBehaviour {
         for (int i=0 ; i < 3 ;i++) {
             hi_look[i] = GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().SpawnPoint_Safezone[i].gameObject;
             
-            Debug.Log(hi_look[i]);
+            Debug.Log(hi_look[i]);	
         }
         GameObject.Find("SpawnManager").GetComponent<Spawn_SafeZone>().arrow_test = true;
     }
