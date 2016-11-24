@@ -33,7 +33,7 @@ public class Spawn_SafeZone : MonoBehaviour {
         for (int i = 0; i < Spawn_count; i++)
         {
             SpawnPoint_Safezone[i].SetActive(true);
-                        
+
         }
     }
 

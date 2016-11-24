@@ -168,9 +168,8 @@ public class Player1120 : MonoBehaviour {
         }
     }
 
-    void look_at()
+    void hi()
     {
-       // go.GetCompont<Point>().
+       // GetComponent("Spawn_SafeZone").SpawnPoint_Safezone
     }
-
 }
