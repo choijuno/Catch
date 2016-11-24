@@ -100,7 +100,7 @@ public class Player1120 : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
             mybody.MovePosition(mybody.position - Vector3.right * speed * Time.smoothDeltaTime);
     }
-	/*
+
 	private void InputColorChange(){
 		if (Input.GetKeyDown (KeyCode.R)) {
 			ChangeColorTo (new Vector3 (Random.Range (0f, 1f), Random.Range (0f, 1f), Random.Range (0f, 1f)));
@@ -114,7 +114,7 @@ public class Player1120 : MonoBehaviour {
 			networkview.RPC ("ChangeColorTo", RPCMode.OthersBuffered, Color);
 		}
 	}
-	*/
+
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info){
 		Vector3 syncPosition = Vector3.zero;

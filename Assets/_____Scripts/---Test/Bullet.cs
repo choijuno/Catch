@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
+	public NetworkView networkview;
+
 	public GameObject lookStick;
 
 	public bool shootCheck;
