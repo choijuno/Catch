@@ -9,6 +9,7 @@ TagManager:
   - safezone
   - wall
   - point
+  - bullet
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 	public GameObject lookStick;
 
-	public bool shootCheck;
+	private bool shootCheck;
 
 	public float Timer;
 	float timer_in;
@@ -13,67 +13,56 @@ public class Bullet : MonoBehaviour {
 
 	MeshRenderer myMesh;
 
+	public GameObject Button;
 
-	// Use this for initialization
-	void Start () {
+
+
+	void Start() {
 		
+	}
+
+	void Awake() {
+		lookStick = GameObject.Find ("shootStartPos");
+		Button = GameObject.Find ("Button");
+		resetPos ();
+
 		timer_in = Timer;
 		speed_in = Speed * 0.01f;
 
-		StartCoroutine ("ready");
-		shootCheck = false;
-		//gameObject.SetActive (false);
+
 	}
 
-	void resetPos(){
+	void Update() {
+		if (!shootCheck) {
+			resetPos ();
+			shootCheck = true;
+		}
+
+
+		transform.Translate (0, 0, speed_in);
+
+		timer_in = timer_in - Time.deltaTime;
+
+		if (timer_in <= 0) {
+			shootCheck = false;
+			transform.localPosition = new Vector3 (0, 100, 0);
+			timer_in = Timer;
+			//StartCoroutine ("ready");
+			gameObject.SetActive (false);
+			//StopCoroutine ("shoot");
+		}
+	}
+
+	public void resetPos(){
+		 
 		transform.localPosition = lookStick.transform.position;
 		transform.rotation = new Quaternion (lookStick.transform.rotation.x,lookStick.transform.rotation.y,lookStick.transform.rotation.z,lookStick.transform.rotation.w);
 	}
 
-	IEnumerator ready(){
-
-		while (true) {
-
-			if (shootCheck) {
-				resetPos ();
-				StartCoroutine ("shoot");
-				StopCoroutine ("ready");
-			}
-
-			yield return null;
-		}
-	}
 
 
-	IEnumerator shoot(){
-		timer_in = Timer;
 
-		while (true) {
-			
-			transform.Translate (0, 0, speed_in);
-			/*
-			if (!shootCheck) {
-				timer_in = 0;
-				resetPos ();
-				StartCoroutine ("ready");
-				StopCoroutine ("shoot");
-			}
-			*/
 
-			timer_in = timer_in - Time.deltaTime;
-
-			if (timer_in <= 0) {
-				shootCheck = false;
-				timer_in = 0;
-				resetPos ();
-				StartCoroutine ("ready");
-				StopCoroutine ("shoot");
-			}
-
-			yield return null;
-		}
-
-	}
 
 	void OnTriggerEnter(Collider target){
 		
