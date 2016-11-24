@@ -10,6 +10,8 @@ namespace CnControls
     /// </summary>
     public class SimpleButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
+		public NetworkView nv;
+
 		public int chaNum;
 
 		public GameObject[] Bullets;
