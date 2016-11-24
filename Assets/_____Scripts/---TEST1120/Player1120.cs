@@ -32,8 +32,11 @@ public class Player1120 : MonoBehaviour {
     GameObject gameCamera;
 
 	void Start(){
-		Controller = GameObject.Find ("Button");
-		Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
+		if (Application.loadedLevelName == "Test1120") {
+			Controller = GameObject.Find ("Button");
+			Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
+		}
+
 		speed = speed * 0.01f;
 		mybody = GetComponent<Rigidbody> ();
 		if (networkview.isMine) {
