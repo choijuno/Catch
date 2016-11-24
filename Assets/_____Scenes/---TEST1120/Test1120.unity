@@ -1056,7 +1056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460876, guid: 81acfa4b78dfa47499a6c2fd6e521ebd, type: 2}
       propertyPath: bulletMax
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11460876, guid: 81acfa4b78dfa47499a6c2fd6e521ebd, type: 2}
       propertyPath: Bullets.Array.data[0]
