@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
 	public GameObject Button;
 
 
-
+	[RPC]
 	void Start() {
 		networkview = GetComponent<NetworkView> ();
 	}
