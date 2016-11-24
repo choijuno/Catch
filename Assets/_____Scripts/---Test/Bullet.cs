@@ -17,9 +17,17 @@ public class Bullet : MonoBehaviour {
 
 	public GameObject Button;
 
+	public Rigidbody mybody;
+	private float lastSynchronizationTime = 0f;
+	private float syncDelay = 0f;
+	private float syncTime = 0f;
+	private Vector3 syncStartPosition = Vector3.zero;
+	private Vector3 syncEndPosition = Vector3.zero;
+
 
 	[RPC]
 	void Start() {
+		mybody = GetComponent<Rigidbody> ();
 		networkview = GetComponent<NetworkView> ();
 	}
 	[RPC]
@@ -63,7 +71,27 @@ public class Bullet : MonoBehaviour {
 
 
 
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info){
+		Vector3 syncPosition = Vector3.zero;
+		Vector3 syncVelocity = Vector3.zero;
+		if (stream.isWriting) {
+			//syncPosition = mybody.position;
+			stream.Serialize (ref syncPosition);
 
+			//syncVelocity = mybody.position;
+			stream.Serialize (ref syncVelocity);
+		} else {
+			stream.Serialize (ref syncPosition);
+			stream.Serialize (ref syncVelocity);
+
+			syncTime = 0f;
+			syncDelay = Time.time - lastSynchronizationTime;
+			lastSynchronizationTime = Time.time;
+
+			syncEndPosition = syncPosition + syncVelocity * syncDelay;
+			syncStartPosition = mybody.position;
+		}
+	}
 
 
 	void OnTriggerEnter(Collider target){
