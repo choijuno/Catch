@@ -4,9 +4,13 @@ using CnControls;
 
 public class Player1120 : MonoBehaviour {
 
+	public GameObject Controller;
+
+
     int chaNum = 1;
 
-	public float speed = 0.02f;
+	public float speed;
+
 
 	public Rigidbody mybody;
 
@@ -28,6 +32,9 @@ public class Player1120 : MonoBehaviour {
     GameObject gameCamera;
 
 	void Start(){
+		Controller = GameObject.Find ("Button");
+		Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
+		speed = speed * 0.01f;
 		mybody = GetComponent<Rigidbody> ();
 		if (networkview.isMine) {
 			gameCamera = GameObject.Find ("Main Camera");
@@ -43,24 +50,13 @@ public class Player1120 : MonoBehaviour {
 	{
 		if (networkview.isMine) {
 			InputMovement ();
-			InputColorChange ();
+			//InputColorChange ();
 		} else {    
 			SyncedMovement ();
 		}
 
 
-		if (Input.GetMouseButton (0)) {
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit)) {
-				if (hit.collider.gameObject.CompareTag ("left")) {
-					mybody.MovePosition(mybody.position - Vector3.right * speed * Time.deltaTime);
-				}
-				if (hit.collider.gameObject.CompareTag ("right")) {
-					mybody.MovePosition(mybody.position + Vector3.right * speed * Time.deltaTime);
-				}
-			}
-		}
+
         if (safe==true)
         {
             police_HP = police_HP - (1 * Time.deltaTime);
@@ -83,7 +79,7 @@ public class Player1120 : MonoBehaviour {
     }
 	void InputMovement()
 	{
-		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * 0.05f), 0.7f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * 0.05f));
+		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * speed), 0.7f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * speed));
         
         if (Input.GetKey(KeyCode.W))
             mybody.MovePosition(mybody.position + Vector3.forward * speed * Time.smoothDeltaTime);
@@ -94,13 +90,13 @@ public class Player1120 : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
             mybody.MovePosition(mybody.position - Vector3.right * speed * Time.smoothDeltaTime);
     }
-
+	/*
 	private void InputColorChange(){
 		if (Input.GetKeyDown (KeyCode.R)) {
 			ChangeColorTo (new Vector3 (Random.Range (0f, 1f), Random.Range (0f, 1f), Random.Range (0f, 1f)));
 		}
 	}
-
+	
 	[RPC] void ChangeColorTo(Vector3 Color){
 		myrenderer.material.color = new Color (Color.x, Color.y, Color.z, 1f);
 
@@ -108,6 +104,7 @@ public class Player1120 : MonoBehaviour {
 			networkview.RPC ("ChangeColorTo", RPCMode.OthersBuffered, Color);
 		}
 	}
+	*/
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info){
 		Vector3 syncPosition = Vector3.zero;

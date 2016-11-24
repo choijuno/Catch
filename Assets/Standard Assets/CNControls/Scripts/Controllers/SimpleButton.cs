@@ -10,6 +10,7 @@ namespace CnControls
     /// </summary>
     public class SimpleButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
+		public int chaNum;
 
 		public GameObject[] Bullets;
 
@@ -75,6 +76,7 @@ namespace CnControls
         public void OnPointerDown(PointerEventData eventData)
         {
 			Debug.Log ("btnDown");
+
 
 			if (bulletCount < bulletMax && !reloadCheck) {
 				Bullets [bulletCount].SetActive (true);

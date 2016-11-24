@@ -4,7 +4,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 	public GameObject lookStick;
 
-	private bool shootCheck;
+	public bool shootCheck;
 
 	public float Timer;
 	float timer_in;
