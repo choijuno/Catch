@@ -14,13 +14,6 @@ public class Spawn_SafeZone : MonoBehaviour {
         spawn_zone();        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-        
-    }
-
-
     void shuffle_point(){
         for (int i = 0; i < SpawnPoint_Safezone.Length; i++)
         {
@@ -40,7 +33,7 @@ public class Spawn_SafeZone : MonoBehaviour {
         for (int i = 0; i < Spawn_count; i++)
         {            
             SpawnPoint_Safezone[i].SetActive(true);
-
+                        
         }
     }
 
