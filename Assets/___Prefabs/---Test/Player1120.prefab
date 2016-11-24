@@ -30,6 +30,7 @@ GameObject:
   - 65: {fileID: 6583966}
   - 23: {fileID: 2356598}
   - 114: {fileID: 11408166}
+  - 148: {fileID: 14850736}
   m_Layer: 0
   m_Name: LookTaget
   m_TagString: Untagged
@@ -712,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookStick: {fileID: 0}
+  nv: {fileID: 14850736}
 --- !u!135 &13507522
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -796,6 +798,18 @@ NetworkView:
   m_Enabled: 1
   m_StateSynchronization: 1
   m_Observed: {fileID: 11402716}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14850736
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117596}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11408166}
   m_ViewID:
     m_ID: 0
     m_Type: 0
