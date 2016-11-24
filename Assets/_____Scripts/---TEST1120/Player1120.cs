@@ -5,7 +5,7 @@ using CnControls;
 public class Player1120 : MonoBehaviour {
 
 	public GameObject Controller;
-
+    GameObject look;
 
     int chaNum = 1;
 
@@ -65,17 +65,17 @@ public class Player1120 : MonoBehaviour {
 			SyncedMovement ();
 		}
 
-        if (safe==true)
+        if (safe == true)
         {
             HP = HP - (1 * Time.deltaTime);
             Debug.Log("죽어감" + HP);
         }
-        if (safe==false && HP < 5.0f && HP > 0.0f)
+        if (safe == false && HP < 5.0f && HP > 0.0f)
         {
             HP = HP + (1 * Time.deltaTime);
             Debug.Log("살아남" + HP);
         }
-        if(HP>5)
+        if (HP > 5)
         {
             HP = 5;
         }
@@ -167,4 +167,10 @@ public class Player1120 : MonoBehaviour {
             Debug.Log(safe);
         }
     }
+
+    void look_at()
+    {
+       // go.GetCompont<Point>().
+    }
+
 }

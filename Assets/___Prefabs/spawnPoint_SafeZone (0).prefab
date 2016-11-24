@@ -29,6 +29,7 @@ GameObject:
   - 33: {fileID: 3386646}
   - 136: {fileID: 13614232}
   - 23: {fileID: 2391706}
+  - 114: {fileID: 11493156}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: point
@@ -52,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &165216
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.17, y: 0, z: 8.97}
+  m_LocalPosition: {x: -27.17, y: 0, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485700}
@@ -246,6 +247,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142000}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11493156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5c8d57b484831449b6ea78dd61d553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13614232
 CapsuleCollider:
   m_ObjectHideFlags: 1
