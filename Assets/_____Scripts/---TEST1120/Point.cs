@@ -18,8 +18,7 @@ public class Point : MonoBehaviour {
             Debug.Log("clear");
             //clear
             point_time = 0;
-        }
-	
+        }	
 	}
 
 
