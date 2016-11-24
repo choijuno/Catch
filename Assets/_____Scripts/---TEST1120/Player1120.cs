@@ -121,7 +121,7 @@ public class Player1120 : MonoBehaviour {
 		}
 	}
 	
-	[RPC] void ChangeColorTo(Vector3 Color){
+	void ChangeColorTo(Vector3 Color){
 		myrenderer.material.color = new Color (Color.x, Color.y, Color.z, 1f);
 
 		if (networkview.isMine) {
