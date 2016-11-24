@@ -4,6 +4,7 @@ using System.Collections;
 public class Spawn_SafeZone : MonoBehaviour {
 
     public GameObject[] SpawnPoint_Safezone;
+
     public int Spawn_count;
 
     int[] clear_time= { 5, 5, 5 };
@@ -33,7 +34,7 @@ public class Spawn_SafeZone : MonoBehaviour {
         for (int i = 0; i < Spawn_count; i++)
         {            
             SpawnPoint_Safezone[i].SetActive(true);
-                        
+                                    
         }
     }
 

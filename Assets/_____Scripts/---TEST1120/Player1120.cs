@@ -24,7 +24,7 @@ public class Player1120 : MonoBehaviour {
 
 	public Renderer myrenderer;
 
-    float police_HP=5.0f;
+    float HP=5.0f;
     bool safe = false;
 
 
@@ -32,11 +32,8 @@ public class Player1120 : MonoBehaviour {
     GameObject gameCamera;
 
 	void Start(){
-		if (Application.loadedLevelName == "Test1120") {
-			Controller = GameObject.Find ("Button");
-			Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
-		}
-
+		Controller = GameObject.Find ("Button");
+		Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
 		speed = speed * 0.01f;
 		mybody = GetComponent<Rigidbody> ();
 		if (networkview.isMine) {
@@ -44,13 +41,19 @@ public class Player1120 : MonoBehaviour {
 			gameCamera.GetComponent<CamControl1120> ().Player = gameObject;
 			gameCamera.GetComponent<CamControl1120> ().signCheck = true;
 		}
-        Debug.Log(police_HP);
+        Debug.Log(HP);
         Debug.Log(safe);
         
     }
 
     void Update()
 	{
+        if(HP == 0)
+        {
+            //death
+        }
+
+
 		if (networkview.isMine) {
 			InputMovement ();
 			//InputColorChange ();
@@ -58,28 +61,28 @@ public class Player1120 : MonoBehaviour {
 			SyncedMovement ();
 		}
 
-
-
         if (safe==true)
         {
-            police_HP = police_HP - (1 * Time.deltaTime);
-            Debug.Log("죽어감" + police_HP);
+            HP = HP - (1 * Time.deltaTime);
+            Debug.Log("죽어감" + HP);
         }
-        if (safe==false && police_HP < 5.0f && police_HP > 0.0f)
+        if (safe==false && HP < 5.0f && HP > 0.0f)
         {
-            police_HP = police_HP + (1 * Time.deltaTime);
-            Debug.Log("살아남" + police_HP);
+            HP = HP + (1 * Time.deltaTime);
+            Debug.Log("살아남" + HP);
         }
-        if(police_HP>5)
+        if(HP>5)
         {
-            police_HP = 5;
+            HP = 5;
         }
-        if (safe == true && police_HP <= 0)
+        if (safe == true && HP <= 0)
         {
-            police_HP = 0;
-            Debug.Log("끝" + police_HP);
+            HP = 0;
+            Debug.Log("끝" + HP);
         }
     }
+
+
 	void InputMovement()
 	{
 		mybody.transform.position = new Vector3 (mybody.transform.position.x + (CnInputManager.GetAxis ("Horizontal") * speed), 0.7f, mybody.transform.position.z + (CnInputManager.GetAxis ("Vertical") * speed));
@@ -151,6 +154,7 @@ public class Player1120 : MonoBehaviour {
             Debug.Log(safe);
         }
     }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("safezone"))
