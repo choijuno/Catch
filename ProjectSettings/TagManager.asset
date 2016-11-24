@@ -4,11 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - left
-  - right
   - safezone
   - wall
   - point
+  - bullet
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 namespace CnControls
 {
@@ -9,10 +10,28 @@ namespace CnControls
     /// </summary>
     public class SimpleButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
+		public int chaNum;
+
+		public GameObject[] Bullets;
+
+		public int bulletMax;
+
+		public int bulletCount;
+		int bulletNum;
+
+		bool reloadCheck;
+		public float reloadTime;
+		float reloadTime_in;
+
+
+
+
+
         /// <summary>
         /// The name of the button
         /// </summary>
         public string ButtonName = "Shoot";
+
 
 
 
@@ -46,7 +65,6 @@ namespace CnControls
         /// <param name="eventData">Data of the passed event</param>
         public void OnPointerUp(PointerEventData eventData)
 		{
-			Debug.Log ("btnUp");
             _virtualButton.Release();
         }
 
@@ -58,7 +76,27 @@ namespace CnControls
         public void OnPointerDown(PointerEventData eventData)
         {
 			Debug.Log ("btnDown");
+
+
+			if (bulletCount < bulletMax && !reloadCheck) {
+				Bullets [bulletCount].SetActive (true);
+				bulletCount++;
+
+				if (bulletCount >= bulletMax) {
+					reloadCheck = true;
+					bulletCount = 0;
+					Invoke ("reload", reloadTime_in);
+				}
+			}
+
+
             _virtualButton.Press();
         }
+
+
+		public void reload() {
+			reloadCheck = false;
+		}
+
     }
 }
