@@ -75,7 +75,7 @@ namespace CnControls
         /// It's also utilised by the editor input helper
         /// </summary>
         /// <param name="eventData">Data of the passed event</param>
-		[RPC]
+
 		public void OnPointerDown(PointerEventData eventData)
         {
 			Debug.Log ("btnDown");
@@ -91,10 +91,19 @@ namespace CnControls
 					Invoke ("reload", reloadTime_in);
 				}
 			}
+			nv.RPC ("RPCOnPointerDown", RPCMode.AllBuffered, Bullets[0].gameObject);
 
 
             _virtualButton.Press();
         }
+		[RPC]
+		public void RPCOnPointerDown(PointerEventData eventData)
+		{
+			Debug.Log ("btnDown");
+
+
+			_virtualButton.Press();
+		}
 
 
 		public void reload() {
