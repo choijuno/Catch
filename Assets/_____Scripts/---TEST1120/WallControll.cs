@@ -5,9 +5,7 @@ public class WallControll : MonoBehaviour {
 
     public GameObject Real_Wall;
     bool Wall_st = false;
-
-
-	// Use this for initialization
+    
 	void Start () {
 	
 	}
@@ -16,10 +14,16 @@ public class WallControll : MonoBehaviour {
 	void Update () {
         if(Wall_st == true)
         {
-            Invoke("Real_Wall.SetActive(false);", 2.0f);
+            Invoke("Wall_On", 3.0f);
         }
 	
 	}
+
+    void Wall_On()
+    {
+        Real_Wall.SetActive(false);
+        Wall_st = false;
+    }
 
 
     void OnTriggerExit(Collider col)
@@ -27,9 +31,12 @@ public class WallControll : MonoBehaviour {
         if (col.gameObject.CompareTag("Player"))
         {
             Real_Wall.SetActive(true);
-            Wall_st = true;            
+            Wall_st = true;
+            Debug.Log(Wall_st + "Wall_st");            
         }
     }
+
+    
 
     
 

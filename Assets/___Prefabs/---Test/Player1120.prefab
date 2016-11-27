@@ -160,7 +160,7 @@ GameObject:
   - 135: {fileID: 13542726}
   m_Layer: 0
   m_Name: Player1120
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
