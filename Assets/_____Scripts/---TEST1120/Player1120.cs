@@ -29,6 +29,8 @@ public class Player1120 : MonoBehaviour {
 
     GameObject[] hi_look = new GameObject[3];
     public GameObject[] arrow;
+
+    public AudioClip Sound_Shoot;
         
     GameObject gameCamera;
 
@@ -88,7 +90,7 @@ public class Player1120 : MonoBehaviour {
             HP = 0;
             Debug.Log("끝" + HP);
         }
-		if (Application.loadedLevelName != "Test1120") {
+		
 			if (GameObject.Find ("SpawnManager").GetComponent<Spawn_SafeZone> ().arrow_test == true) {
             
 				//Debug.Log(hi_look[0].transform);
@@ -96,7 +98,7 @@ public class Player1120 : MonoBehaviour {
 				arrow [1].transform.LookAt (hi_look [1].transform);
 				arrow [2].transform.LookAt (hi_look [2].transform);
 			}
-		}
+		
 
 
     }

@@ -12,12 +12,12 @@ public class WallControll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Wall_st == true)
+        if (Wall_st == true)
         {
             Invoke("Wall_On", 3.0f);
         }
-	
-	}
+
+    }
 
     void Wall_On()
     {
