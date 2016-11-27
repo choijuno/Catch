@@ -9,7 +9,6 @@ public class LookStick : MonoBehaviour {
 	void Start () {
 	
 	}
-	[RPC]
 	void Update () {
 		if (Mathf.Abs(Stick.transform.localPosition.x-146.5f) >= 10 || Mathf.Abs(Stick.transform.localPosition.y-140f) >= 10)
 			transform.LookAt (Stick.transform);

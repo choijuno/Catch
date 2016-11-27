@@ -1,0 +1,101 @@
+fileFormatVersion: 2
+guid: e832184804746694098254ff566c1f1f
+timeCreated: 1480245122
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RedBtn
+    21300002: blueBtn
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RedBtn
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 308
+        width: 336
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -165, y: 43}
+        - {x: -168, y: 40}
+        - {x: -168, y: -40}
+        - {x: -167, y: -41}
+        - {x: -166, y: -41}
+        - {x: -164, y: -43}
+        - {x: 164, y: -43}
+        - {x: 168, y: -39}
+        - {x: 168, y: 39}
+        - {x: 164, y: 43}
+    - name: blueBtn
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 308
+        width: 336
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -165, y: 43}
+        - {x: -168, y: 40}
+        - {x: -168, y: -40}
+        - {x: -167, y: -41}
+        - {x: -166, y: -41}
+        - {x: -164, y: -43}
+        - {x: 164, y: -43}
+        - {x: 168, y: -39}
+        - {x: 168, y: 39}
+        - {x: 164, y: 43}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

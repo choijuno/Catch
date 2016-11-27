@@ -11,6 +11,12 @@ public class NetworkManager : MonoBehaviour {
 	public GameObject spawnPoint_host;
 	public GameObject spawnPoint_guest;
 
+	public GameObject Hostcontroller;
+	public GameObject controller;
+
+	public GameObject BlackPanel;
+	public GameObject FadeBlack;
+
 
 	//server create
 	private const string typeName = "UniqueGameName";
@@ -31,6 +37,7 @@ public class NetworkManager : MonoBehaviour {
 	//Server Create
 	private void StartServer()
 	{
+		
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 	}
@@ -39,6 +46,9 @@ public class NetworkManager : MonoBehaviour {
 	//_player host
 	void OnServerInitialized()
 	{
+		Hostcontroller.SetActive (true);
+		controller.SetActive (true);
+		fadeout ();
 		Debug.Log("Server Initializied");
 		SpawnPlayer (spawnPoint_host);
 	}
@@ -60,12 +70,15 @@ public class NetworkManager : MonoBehaviour {
 	//Server Load 2
 	private void JoinServer(HostData hostData)
 	{
+		
 		Network.Connect(hostData);
 	}
 
 	//_player join
 	void OnConnectedToServer()
 	{
+		fadeout ();
+		controller.SetActive (true);
 		Debug.Log("Server Joined");
 		SpawnPlayer (spawnPoint_guest);
 	}
@@ -80,6 +93,12 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 
+
+	//etc
+	void fadeout(){
+		FadeBlack.SetActive(true);
+		BlackPanel.SetActive (false);
+	}
 
 
 

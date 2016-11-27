@@ -34,10 +34,8 @@ public class Player1120 : MonoBehaviour {
 
 	void Start(){
 		
-		if (Application.loadedLevelName == "Test1120") {
 			Controller = GameObject.Find ("Button");
 			Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
-		}
 
 		speed = speed * 0.01f;
 		mybody = GetComponent<Rigidbody> ();

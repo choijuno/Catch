@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_____Scenes/---Test/Test.unity
+    path: Assets/_____Scenes/---TEST1120/00_rogo.unity
+  - enabled: 1
+    path: Assets/_____Scenes/---TEST1120/01_Main.unity
+  - enabled: 1
+    path: Assets/_____Scenes/Catch_1.unity

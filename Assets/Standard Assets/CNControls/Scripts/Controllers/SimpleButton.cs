@@ -91,12 +91,12 @@ namespace CnControls
 					Invoke ("reload", reloadTime_in);
 				}
 			}
-			nv.RPC ("RPCOnPointerDown", RPCMode.AllBuffered, Bullets[0].gameObject);
+			//nv.RPC ("RPCOnPointerDown", RPCMode.AllBuffered, Bullets[0].gameObject);
 
 
             _virtualButton.Press();
         }
-		[RPC]
+
 		public void RPCOnPointerDown(PointerEventData eventData)
 		{
 			Debug.Log ("btnDown");
