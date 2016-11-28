@@ -167,7 +167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 451530, guid: b5c0042780d835b4c87b94e689e2bfd8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.53
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 451530, guid: b5c0042780d835b4c87b94e689e2bfd8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -692,7 +692,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 161760, guid: eb78af24b1901214991d119fa3b6335b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21251128, guid: eb78af24b1901214991d119fa3b6335b, type: 2}
+      propertyPath: m_Color.a
+      value: 0.284
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb78af24b1901214991d119fa3b6335b, type: 2}
