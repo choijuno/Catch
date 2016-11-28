@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 6937e969b2227ec4eab611e11bd1c610
-timeCreated: 1480243918
+timeCreated: 1480307742
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: circle_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +39,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +50,27 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: circle_0
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 290
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: 78}
+        - {x: -78, y: 66}
+        - {x: -78, y: -62}
+        - {x: -51, y: -74}
+        - {x: -45, y: -78}
+        - {x: 57, y: -78}
+        - {x: 78, y: -50}
+        - {x: 78, y: 65}
+        - {x: 44, y: 78}
     outline: []
   spritePackingTag: 
   userData: 
