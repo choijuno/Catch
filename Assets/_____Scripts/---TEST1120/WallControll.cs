@@ -5,6 +5,8 @@ public class WallControll : MonoBehaviour {
 
     public GameObject Real_Wall;
     bool Wall_st = false;
+
+    
     
 	void Start () {
 	
@@ -22,6 +24,7 @@ public class WallControll : MonoBehaviour {
     void Wall_On()
     {
         Real_Wall.SetActive(false);
+        
         Wall_st = false;
     }
 
@@ -30,7 +33,7 @@ public class WallControll : MonoBehaviour {
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Real_Wall.SetActive(true);
+            Real_Wall.SetActive(true);            
             Wall_st = true;
             Debug.Log(Wall_st + "Wall_st");            
         }
