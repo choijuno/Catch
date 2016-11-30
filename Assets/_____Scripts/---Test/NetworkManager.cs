@@ -17,6 +17,7 @@ public class NetworkManager : MonoBehaviour {
 	public GameObject BlackPanel;
 	public GameObject FadeBlack;
 
+	public static int playerSetNum;
 
 	//server create
 	private const string typeName = "UniqueGameName";
@@ -26,7 +27,7 @@ public class NetworkManager : MonoBehaviour {
 	private HostData[] hostList;
 
 	void Start () {
-	
+		playerSetNum = 0;
 	}
 
 	void Update () {
@@ -46,11 +47,13 @@ public class NetworkManager : MonoBehaviour {
 	//_player host
 	void OnServerInitialized()
 	{
+		playerSetNum = 1;
 		Hostcontroller.SetActive (true);
 		controller.SetActive (true);
 		fadeout ();
 		Debug.Log("Server Initializied");
 		SpawnPlayer (spawnPoint_host);
+
 	}
 
 
@@ -77,6 +80,7 @@ public class NetworkManager : MonoBehaviour {
 	//_player join
 	void OnConnectedToServer()
 	{
+		playerSetNum = 0;
 		fadeout ();
 		controller.SetActive (true);
 		Debug.Log("Server Joined");

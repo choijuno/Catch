@@ -7,7 +7,12 @@ public class Player1120 : MonoBehaviour {
 	public GameObject Controller;
     GameObject look;
 
-    int chaNum = 1;
+	int chaNum = 1;
+	public GameObject model_cat;
+	public GameObject model_mouse;
+
+	public GameObject win;
+	public GameObject lose;
 
 	public float speed;
 
@@ -35,7 +40,17 @@ public class Player1120 : MonoBehaviour {
     GameObject gameCamera;
 
 	void Start(){
-		
+		chaNum = NetworkManager.playerSetNum;
+
+		if (chaNum == 1) {
+			model_cat.SetActive (true);
+		} else {
+			model_mouse.SetActive (true);
+		}
+
+		win = GameObject.Find ("win").gameObject;
+		lose = GameObject.Find ("lose").gameObject;
+
 			Controller = GameObject.Find ("Button");
 			Controller.GetComponent<CnControls.SimpleButton> ().chaNum = chaNum;
 
@@ -163,7 +178,19 @@ public class Player1120 : MonoBehaviour {
     {
        
         if(col.gameObject.CompareTag("wall"))
-            Debug.Log("앙");        
+            Debug.Log("앙");    
+		if (col.gameObject.CompareTag("Player")) {
+			//result
+			Controller.SetActive(false);
+			GameObject.Find ("Joystick").SetActive (false);
+			if (chaNum == 1) {
+				win.transform.localPosition = new Vector3 (0, 0, 0);
+			} else {
+				lose.transform.localPosition = new Vector3 (0, 0, 0);
+			}
+			Time.timeScale = 0.01f;
+
+		}
     }
 
     void OnTriggerExit(Collider col)
@@ -182,7 +209,11 @@ public class Player1120 : MonoBehaviour {
             safe = true;
             Debug.Log(safe);
         }
+
+
     }
+
+
 
     void hi()
     {

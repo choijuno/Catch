@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject Black_Panel;
 
 	void Start () {
+		
+
 		switch (Application.loadedLevelName) {
 
 		case "00_rogo":
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
 		case "Catch_1":
 			Black_Panel.SetActive (true);
+
 			StartCoroutine ("gameup");	
 
 			break;
@@ -43,10 +46,16 @@ public class GameManager : MonoBehaviour {
 	IEnumerator gameup() {
 		while(true) {
 			if (Input.GetKeyDown (KeyCode.Escape)) {
+				Time.timeScale = 1;
 				Application.LoadLevel ("01_Main");
 			}
 			yield return new WaitForSeconds(0.006f);
 		}
+	}
+
+	void playerSet() {
+		
+
 	}
 
 

@@ -21,9 +21,11 @@ public class Bullet : MonoBehaviour {
 
 
 	void Start() {
+		
 	}
 
 	void Awake() {
+		Debug.Log ("Awake");
 		lookStick = GameObject.Find ("shootStartPos");
 		Button = GameObject.Find ("Button");
 		resetPos ();
