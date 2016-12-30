@@ -24,14 +24,13 @@ public class WallControll : MonoBehaviour {
     void Wall_On()
     {
         Real_Wall.SetActive(false);
-        
         Wall_st = false;
     }
 
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && Wall_st == false)
         {
             Real_Wall.SetActive(true);            
             Wall_st = true;
